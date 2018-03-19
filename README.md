@@ -1,7 +1,20 @@
-# Spring Boot Web Application
-##Using H2 and Oracle for a Spring Boot Web Application
+This is a sample springboot application! 
 
-How to use H2 and Oracle with a Spring Boot Web Application using Spring Framework profiles.
+This project uses JPA and Hibernate persistence to store entity objects to memory. 
 
-You can see the full blog post about using Spring Boot with H2 and Oracle at  [Spring Framework ssw](https://springframework.ssw/using-h2-and-oracle-with-spring-boot/)
+To start the rest client - mvn spring-boot:run
 
+A list of users can be found at :
+http:localhost:8080/user/names
+
+Their ages can be found at :
+http:localhost:8080/user/ages
+
+Their birthdays can be found at : 
+http:localhost:8080/user/birthdays
+
+A new user can be added by posting a json object containing a name, age and birthday formatted as yyyy-MM-dd 
+
+A person's age and birthday can be found at
+http:localhost:8080/{user's name}/age
+http:localhost:8080/{user's name}/birthday

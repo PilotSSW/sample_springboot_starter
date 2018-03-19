@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>People List</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div th:if="${not #lists.isEmpty(persons)}">
+                <h2>Person List</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Birthday</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr th:each="person : ${persons}">
+                        <td th:text="${person.id}"><a href="/person/${person.id}">Id</a></td>
+                        <td th:text="${person.name}">Name</td>
+                        <td th:text="${person.age}">Age</td>
+                        <td th:text="${person.birthday}">Birthday</td>
+                        <td>
+                        <a th:href="${'/person/' + person.id}">View</a></td>
+                        <td><a th:href="${'/person/edit/' + person.id}">Edit</a></td>
+                        <td><a th:href="${'/person/delete/' + person.id}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

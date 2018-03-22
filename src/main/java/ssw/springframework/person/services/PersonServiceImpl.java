@@ -42,10 +42,10 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public List<Person> getAllPeople() {
         List<Person> people = new ArrayList<>();
-        Iterable personIterator = listAllPeople();
+        Iterator personIterator = listAllPeople().iterator();
 
-        while(personIterator.iterator().hasNext()){
-            people.add((Person) personIterator.iterator().next());
+        while(personIterator.hasNext()){
+            people.add((Person) personIterator.next());
         }
 
         return people;

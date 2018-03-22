@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ssw.springframework.person.domain.Person;
 import ssw.springframework.person.services.PersonServiceImpl;
 import ssw.springframework.restClient.services.RestServiceImpl;
 
@@ -29,8 +30,10 @@ public class RestController {
         return "addNewPerson";
     }
 
-    @RequestMapping(value = "/personForm", method = RequestMethod.GET)
-    public String person(){
+    @RequestMapping(value = "/personForm", method = RequestMethod.POST)
+    public String person(Person person){
+
+        personService.savePerson(person);
         return "personForm";
     }
 

@@ -9,20 +9,21 @@ import java.util.Date;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "first_name")
-    private String firstName;
+    public String firstName;
 
     @Column(name = "last_name")
-    private String lastName;
+    public String lastName;
 
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     @Column(name = "birthday")
-    private Date birthday;
+    public Date birthday;
 
     @Column(name = "age")
-    private Integer age;
+    public Integer age;
 
     public String getName() {
         return firstName + " " + lastName;
@@ -56,7 +57,7 @@ public class Person {
         this.age = age;
     }
 
-    public Long getPersonId() {
+    public Integer getPersonId() {
         return id;
     }
 }

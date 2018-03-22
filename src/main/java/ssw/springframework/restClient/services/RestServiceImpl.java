@@ -3,10 +3,8 @@ package ssw.springframework.restClient.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 import ssw.springframework.person.domain.Person;
-import ssw.springframework.person.services.PersonServiceImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,13 +16,9 @@ public class RestServiceImpl {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private PersonServiceImpl personService;
+    private String endPoint = "http://localhost:8080";
 
-    @Value("${resource.endpoint}")
-    private String endPoint;
 
-    
     public String getUserBirthday(String name){
         return restTemplate.getForObject(endPoint + "/" + name + "/birthday", String.class);
     }

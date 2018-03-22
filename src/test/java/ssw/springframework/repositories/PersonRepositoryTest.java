@@ -2,7 +2,7 @@ package ssw.springframework.repositories;
 
 /*import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import ssw.springframework.domain.Person;
+import Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +18,10 @@ import static org.junit.Assert.assertNull;
 @SpringBootTest(classes = SpringBootApplication.class)
 public class PersonRepositoryTest {
 
-    private ssw.springframework.repositories.PersonRepository personRepository;
+    private PersonRepository personRepository;
 
     @Autowired
-    public void setPersonRepository(ssw.springframework.repositories.PersonRepository personRepository) {
+    public void setPersonRepository(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 

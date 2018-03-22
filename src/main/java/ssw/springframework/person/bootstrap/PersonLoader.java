@@ -1,7 +1,7 @@
-package ssw.springframework.bootstrap;
+package ssw.springframework.person.bootstrap;
 
-import ssw.springframework.domain.Person;
-import ssw.springframework.repositories.PersonRepository;
+import ssw.springframework.person.domain.Person;
+import ssw.springframework.person.repositories.PersonRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -31,7 +31,8 @@ public class PersonLoader implements ApplicationListener<ContextRefreshedEvent> 
         if(personCount == 0){
             Person creator = new Person();
 
-            creator.setName("Tony Stark");
+            creator.setFirstName("Tony");
+            creator.setLastName("Stark");
             creator.setBirthday(new Date("04/11/1992"));
             creator.setAge(25);
 

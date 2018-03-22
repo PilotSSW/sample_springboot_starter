@@ -2,9 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
         <title>People List</title>
+        <th:block th:include="fragments/headerinc :: head"></th:block>
     </head>
     <body>
         <div class="container-fluid">
+            <div class="container-fluid">
+                <th:block th:include="fragments/header :: header"></th:block>
+            </div>
             <div th:if="${not #lists.isEmpty(persons)}">
                 <h2>Person List</h2>
                 <table class="table table-striped">
@@ -17,7 +21,7 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
-                    <tr th:each="person : ${persons}">
+                    <tr th:each="person : ${people}">
                         <td th:text="${person.id}"><a href="/person/${person.id}">Id</a></td>
                         <td th:text="${person.name}">Name</td>
                         <td th:text="${person.age}">Age</td>

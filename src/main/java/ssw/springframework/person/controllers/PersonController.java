@@ -1,18 +1,15 @@
-package ssw.springframework.controllers;
+package ssw.springframework.person.controllers;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
-import ssw.springframework.domain.Person;
+import ssw.springframework.person.domain.Person;
 import ssw.springframework.exception.ResourceNotFoundException;
-import ssw.springframework.services.PersonService;
+import ssw.springframework.person.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
-import javax.xml.ws.Response;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -21,7 +18,7 @@ public class PersonController {
     private PersonService personService;
 
     @Autowired
-    public void setPersonService(ssw.springframework.services.PersonService personService) {
+    public void setPersonService(PersonService personService) {
         this.personService = personService;
     }
 
@@ -29,20 +26,20 @@ public class PersonController {
     @ResponseBody
     public ResponseEntity<?> getBirthdayFor(@PathVariable String name) {
 
-        Person person = personService.getPersonByName(name);
-        if(person != null) {
+        Person person = personService.findPerson(name);
+        if (person != null) {
             return new ResponseEntity<>(person.getBirthday(), HttpStatus.OK);
         }
 
-        return null;
+        return new ResponseEntity<>(new ResourceNotFoundException("Person named " + name + " not found"), HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "{name}/age", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getAgeFor(@PathVariable String name) {
 
-        Person person = personService.getPersonByName(name);
-        if(person != null) {
+        Person person = personService.findPerson(name);
+        if (person != null) {
             return new ResponseEntity<>(person.getAge(), HttpStatus.OK);
         }
 
@@ -55,10 +52,12 @@ public class PersonController {
 
         personService.savePerson(person);
 
-        Person checkForAddedPerson = personService.getPersonByName(person.getName());
+        Person checkForAddedPerson = personService.findPerson(person.getName());
 
-        if(checkForAddedPerson.getAge() == person.getAge() && checkForAddedPerson.getBirthday() == person.getBirthday()) {
-            return new ResponseEntity<>(person, HttpStatus.OK);
+        if (checkForAddedPerson != null &&
+            checkForAddedPerson.getAge() == person.getAge() &&
+            checkForAddedPerson.getBirthday() == person.getBirthday()) {
+                return new ResponseEntity<>(person, HttpStatus.OK);
         }
         else {
             return new ResponseEntity<>(

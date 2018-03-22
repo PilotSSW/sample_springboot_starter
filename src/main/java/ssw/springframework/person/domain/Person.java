@@ -1,4 +1,4 @@
-package ssw.springframework.domain;
+package ssw.springframework.person.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,8 +11,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     @Column(name = "birthday")
@@ -22,12 +25,20 @@ public class Person {
     private Integer age;
 
     public String getName() {
-        return name;
+        return firstName + " " + lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName.trim();
     }
+
+    public String getFirstName() { return this.firstName; }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName.trim();
+    }
+
+    public String getLastName() { return this.lastName; }
 
     public Date getBirthday() {
         return birthday;

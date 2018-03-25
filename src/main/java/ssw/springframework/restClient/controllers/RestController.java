@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ssw.springframework.exception.ResourceNotFoundException;
+import ssw.springframework.restClient.exception.ResourceNotFoundException;
 import ssw.springframework.person.domain.Person;
 import ssw.springframework.person.services.PersonServiceImpl;
 import ssw.springframework.restClient.services.RestServiceImpl;

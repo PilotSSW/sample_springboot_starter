@@ -2,7 +2,7 @@ package ssw.springframework.person.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import ssw.springframework.person.domain.Person;
-import ssw.springframework.exception.ResourceNotFoundException;
+import ssw.springframework.person.exception.PersonNotFoundException;
 import ssw.springframework.person.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +31,7 @@ public class PersonController {
             return new ResponseEntity<>(person.getBirthday(), HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(new ResourceNotFoundException("Person named " + name + " not found"), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new PersonNotFoundException("Person named " + name + " not found"), HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "{name}/age", method = RequestMethod.GET)
@@ -43,7 +43,7 @@ public class PersonController {
             return new ResponseEntity<>(person.getAge(), HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(new ResourceNotFoundException("Person named " + name + " not found"), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new PersonNotFoundException("Person named " + name + " not found"), HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "user", method = RequestMethod.POST)
@@ -61,7 +61,7 @@ public class PersonController {
         }
         else {
             return new ResponseEntity<>(
-                    new ResourceNotFoundException("User was not able to be created"),
+                    new PersonNotFoundException("User was not able to be created"),
                     HttpStatus.I_AM_A_TEAPOT);
         }
     }

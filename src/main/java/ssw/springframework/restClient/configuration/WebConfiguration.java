@@ -1,4 +1,4 @@
-package ssw.springframework.configuration;
+package ssw.springframework.restClient.configuration;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

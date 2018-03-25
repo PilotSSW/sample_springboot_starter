@@ -1,4 +1,4 @@
-package ssw.springframework.controllers;
+package ssw.springframework.restClient.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

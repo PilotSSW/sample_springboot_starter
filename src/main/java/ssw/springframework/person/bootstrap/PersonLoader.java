@@ -38,6 +38,48 @@ public class PersonLoader implements ApplicationListener<ContextRefreshedEvent> 
 
             personRepository.save(creator);
             log.info("Saved creator - id:" + creator.getPersonId());
+
+
+
+
+
+            Person nextPerson = new Person();
+
+            nextPerson.setFirstName("Dave");
+            nextPerson.setLastName("Grohl");
+            nextPerson.setBirthday(new Date("01/14/1969"));
+            nextPerson.setAge(49);
+
+            personRepository.save(nextPerson);
+            log.info("Saved nextPerson - id:" + nextPerson.getPersonId());
+
+
+
+
+
+            Person someOtherPerson = new Person();
+
+            someOtherPerson.setFirstName("Beavis");
+            someOtherPerson.setLastName("Judge");
+            someOtherPerson.setBirthday(new Date("03/08/1993"));
+            someOtherPerson.setAge(15);
+
+            personRepository.save(someOtherPerson);
+            log.info("Saved someOtherPerson - id:" + someOtherPerson.getPersonId());
+
+
+
+
+
+            Person someOtherOtherPerson = new Person();
+
+            someOtherOtherPerson.setFirstName("Butthead");
+            someOtherOtherPerson.setLastName("Judge");
+            someOtherOtherPerson.setBirthday(new Date("03/08/1993"));
+            someOtherOtherPerson.setAge(14);
+
+            personRepository.save(someOtherOtherPerson);
+            log.info("Saved someOtherOtherPerson - id:" + someOtherOtherPerson.getPersonId());
         }
     }
 }

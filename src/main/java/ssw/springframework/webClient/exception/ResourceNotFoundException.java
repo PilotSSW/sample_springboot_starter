@@ -1,4 +1,4 @@
-package ssw.springframework.restClient.exception;
+package ssw.springframework.webClient.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

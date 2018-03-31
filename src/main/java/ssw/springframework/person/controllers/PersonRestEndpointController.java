@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class PersonController {
+public class PersonRestEndpointController {
 
     private PersonService personService;
 

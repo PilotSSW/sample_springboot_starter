@@ -23,15 +23,15 @@
                         <th>Delete</th>
                     </tr>
                     <tr th:each="person : ${people}">
-                        <td th:text="${person.id}">Id</td>
+                        <td th:text="${person.personId}">Id</td>
                         <td th:text="${person.firstName}">First Name</td>
                         <td th:text="${person.lastName}">Last Name</td>
                         <td th:text="${person.age}">Age</td>
                         <td th:text="${person.birthday}">Birthday</td>
                         <td>
-                        <a th:href="${'/person/' + person.id}">View</a></td>
-                        <td><a th:href="${'/person/edit/' + person.id}">Edit</a></td>
-                        <td><a th:href="${'/person/delete/' + person.id}">Delete</a></td>
+                        <a th:href="${'/person/' + person.personId}">View</a></td>
+                        <td><a th:href="${'/person/edit/' + person.personId}">Edit</a></td>
+                        <td><a th:href="${'/person/delete/' + person.personId}">Delete</a></td>
                     </tr>
                 </table>
             </div>

@@ -1,4 +1,4 @@
-package ssw.springframework.restClient.configuration;
+package ssw.springframework.webClient.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

@@ -24,9 +24,13 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findAll();
     }
 
-    @Override
     public Person getPersonById(Long id) {
         return personRepository.findOne(id);
+    }
+
+    @Override
+    public Person getPersonById(Integer id) {
+        return personRepository.findOne(id.longValue());
     }
 
     @Override
@@ -35,8 +39,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void deletePerson(Long id) {
-        personRepository.delete(id);
+    public void deletePerson(Integer id) {
+        personRepository.delete(id.longValue());
     }
 
     @Override

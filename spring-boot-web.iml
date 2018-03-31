@@ -43,6 +43,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.10.RELEASE" level="project" />
@@ -107,7 +109,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.14.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:1.5.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator:1.5.10.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars:bootstrap:4.0.0-1" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:bootstrap:4.0.0-2" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:popper.js:1.12.9-1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery:3.3.1-1" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.196" level="project" />

@@ -9,7 +9,7 @@ public interface PersonService {
     Iterable<Person> listAllPeople();
 
     Person findPerson(String name);
-    Person getPersonById(Long id);
+    Person getPersonById(Integer id);
     Person getPersonByFullName(String name);
     Person getPersonByFirstName(String name);
     Person getPersonByLastName(String name);
@@ -18,5 +18,5 @@ public interface PersonService {
     Person savePerson(Person person);
     List<Person> getAllPeople();
 
-    void deletePerson(Long id);
+    void deletePerson(Integer id);
 }

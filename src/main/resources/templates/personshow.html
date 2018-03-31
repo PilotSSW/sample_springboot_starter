@@ -10,13 +10,13 @@
 
             <h2>About:</h2>
             <div>
-                <h3>Id </h3><div th:text="${person.personId}"></div>
-                <h3>First </h3><div th:text="${person.firstName}"></div>
-                <h3>Last </h3><div th:text="${person.lastName}"></div>
-                <h3>Age</h3><div th:text="${person.age}"></div>
-                <h3>Birthday</h3><div th:text="${person.birthday}"></div>
-                <h3>Edit</h3><div><btn th:href="${'/person/edit/' + person.personId}"></btn></div>
-                <h3>Delete</h3><div><btn th:href="${'/person/delete/' + person.personId}"></btn></div>
+                <div th:text="${person.personId}"><div>ID:</div></div>
+                <div th:text="${person.firstName}"><div>First:</div></div>
+                <div th:text="${person.lastName}"><div>Last:</div></div>
+                <div th:text="${person.age}"><div>Age:</div></div>
+                <div th:text="${person.birthday}"><div>Birthday:</div></div>
+                <btn th:href="${'/person/edit/' + person.personId}"></btn>
+                <btn th:href="${'/person/delete/' + person.personId}"></btn>
             </div>
         </div>
     </body>

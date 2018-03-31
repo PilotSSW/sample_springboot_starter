@@ -30,7 +30,6 @@ public class WebController {
     public String person(Model model, @PathVariable Integer personId) {
 
         model.addAttribute("person", personService.getPersonById(personId));
-
         return "personShow";
     }
 
@@ -38,7 +37,6 @@ public class WebController {
     public String editPerson(Model model, @PathVariable Integer personId){
 
         model.addAttribute("person", personService.getPersonById(personId));
-
         return "personForm";
     }
 
@@ -54,9 +52,16 @@ public class WebController {
 
 
     @RequestMapping(value = "/personform", method = RequestMethod.GET)
-    public String createPerson(Model model, @PathVariable Integer personId) {
+    public String createPerson(Model model) {
 
-        // Just update the people page with the person removed
+        model.addAttribute("person", new Person());
+        return "personform";
+    }
+
+    @RequestMapping(value = "/person/add", method = RequestMethod.POST)
+    public String addPerson(Model model, @RequestParam Person newPerson) {
+        personService.savePerson(newPerson);
+
         model.addAttribute("people", personService.getAllPeople());
         return "people";
     }

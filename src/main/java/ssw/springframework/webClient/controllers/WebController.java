@@ -58,8 +58,9 @@ public class WebController {
         return "personform";
     }
 
+
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
-    public String addPerson(Model model, @RequestParam Person newPerson) {
+    public String addPerson(Model model, Person newPerson) {
         personService.savePerson(newPerson);
 
         model.addAttribute("people", personService.getAllPeople());

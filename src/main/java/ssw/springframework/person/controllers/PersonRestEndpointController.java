@@ -48,20 +48,27 @@ public class PersonRestEndpointController {
 
     @RequestMapping(value = "user", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> addNewUser(@RequestBody Person person) {
+    public ResponseEntity<?> addNewUser(@RequestBody Person newPerson) {
 
-        personService.savePerson(person);
+        if(personService.findPerson(newPerson.getName()) == null) {
 
-        Person checkForAddedPerson = personService.findPerson(person.getName());
+            personService.savePerson(newPerson);
 
-        if (checkForAddedPerson != null &&
-            checkForAddedPerson.getAge() == person.getAge() &&
-            checkForAddedPerson.getBirthday() == person.getBirthday()) {
-                return new ResponseEntity<>(person, HttpStatus.OK);
-        }
-        else {
+            Person checkForAddedPerson = personService.findPerson(newPerson.getName());
+
+            if (checkForAddedPerson != null &&
+                    checkForAddedPerson.getAge() == newPerson.getAge() &&
+                    checkForAddedPerson.getBirthday() == newPerson.getBirthday()) {
+                return new ResponseEntity<>(newPerson, HttpStatus.OK);
+
+            } else {
+                return new ResponseEntity<>(
+                        new PersonNotFoundException("User was not able to be created"),
+                        HttpStatus.I_AM_A_TEAPOT);
+            }
+        } else {
             return new ResponseEntity<>(
-                    new PersonNotFoundException("User was not able to be created"),
+                    new PersonNotFoundException("User already exists and cannot be added"),
                     HttpStatus.I_AM_A_TEAPOT);
         }
     }
